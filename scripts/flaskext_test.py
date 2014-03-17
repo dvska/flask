@@ -17,10 +17,11 @@ import tempfile
 import subprocess
 import argparse
 
-from flask import json
-
 from setuptools.package_index import PackageIndex
 from setuptools.archive_util import unpack_archive
+
+from flask import json
+
 
 flask_svc_url = 'http://flask.pocoo.org/extensions/'
 
@@ -38,7 +39,6 @@ flaskdir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 # virtualenv hack *cough*
 os.environ['PYTHONDONTWRITEBYTECODE'] = ''
-
 
 RESULT_TEMPATE = u'''\
 <!doctype html>
@@ -116,10 +116,9 @@ def log(msg, *args):
 
 
 class TestResult(object):
-
     def __init__(self, name, folder, statuscode, interpreters):
         intrptr = os.path.join(folder, '.tox/%s/bin/python'
-                               % interpreters[0])
+                                       % interpreters[0])
         self.statuscode = statuscode
         self.folder = folder
         self.success = statuscode == 0
@@ -128,10 +127,11 @@ class TestResult(object):
             try:
                 c = subprocess.Popen([intrptr, 'setup.py',
                                       '--' + field], cwd=folder,
-                                      stdout=subprocess.PIPE)
+                                     stdout=subprocess.PIPE)
                 return c.communicate()[0].strip()
             except OSError:
                 return '?'
+
         self.name = name
         self.license = fetch('license')
         self.author = fetch('author')
@@ -140,7 +140,7 @@ class TestResult(object):
         self.logs = {}
         for interpreter in interpreters:
             logfile = os.path.join(folder, '.tox/%s/log/test.log'
-                                   % interpreter)
+                                           % interpreter)
             if os.path.isfile(logfile):
                 self.logs[interpreter] = open(logfile).read()
             else:
@@ -170,7 +170,7 @@ def get_test_command(checkout_dir):
 
 
 def fetch_extensions_list():
-    req = urllib2.Request(flask_svc_url, headers={'accept':'application/json'})
+    req = urllib2.Request(flask_svc_url, headers={'accept': 'application/json'})
     d = urllib2.urlopen(req).read()
     data = json.loads(d)
     for ext in data['extensions']:
@@ -211,9 +211,9 @@ def create_tox_ini(checkout_path, interpreters, flask_dep):
     if not os.path.exists(tox_path):
         with open(tox_path, 'w') as f:
             f.write(tox_template % {
-                'env':      ','.join(interpreters),
-                'cache':    tdir,
-                'deps':     flask_dep
+                'env': ','.join(interpreters),
+                'cache': tdir,
+                'deps': flask_dep
             })
     return tox_path
 
@@ -269,6 +269,7 @@ def run_tests(extensions, interpreters):
 
 def render_results(results, approved):
     from jinja2 import Template
+
     items = results.values()
     items.sort(key=lambda x: x.name.lower())
     rv = Template(RESULT_TEMPATE, autoescape=True).render(results=items,
@@ -301,6 +302,7 @@ def main():
     filename = render_results(results, only_approved)
     if args.browse:
         import webbrowser
+
         webbrowser.open('file:///' + filename.lstrip('/'))
     print 'Results written to', filename
 

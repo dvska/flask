@@ -9,9 +9,9 @@
     :license: BSD, see LICENSE for more details.
 """
 
-import flask
 import unittest
-from flask.testsuite import FlaskTestCase, catch_warnings
+
+from flask.testsuite import FlaskTestCase
 
 
 class DeprecationsTestCase(FlaskTestCase):

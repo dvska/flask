@@ -17,8 +17,10 @@ import mimetypes
 from time import time
 from zlib import adler32
 from threading import RLock
-from werkzeug.routing import BuildError
 from functools import update_wrapper
+
+from werkzeug.routing import BuildError
+
 
 try:
     from werkzeug.urls import url_quote
@@ -368,7 +370,7 @@ def flash(message, category='message'):
                          message=message, category=category)
 
 
-def get_flashed_messages(with_categories=False, category_filter=[]):
+def get_flashed_messages(with_categories=False, category_filter=None):
     """Pulls all flashed messages from the session and returns them.
     Further calls in the same request to the function will return
     the same messages.  By default just the messages are returned,
@@ -396,6 +398,7 @@ def get_flashed_messages(with_categories=False, category_filter=[]):
     :param with_categories: set to `True` to also receive categories.
     :param category_filter: whitelist of categories to limit return values
     """
+    if not category_filter: category_filter = []
     flashes = _request_ctx_stack.top.flashes
     if flashes is None:
         _request_ctx_stack.top.flashes = flashes = session.pop('_flashes') \

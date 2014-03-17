@@ -12,16 +12,18 @@
 import re
 import uuid
 import time
-import flask
 import pickle
 import unittest
 from datetime import datetime
 from threading import Thread
-from flask.testsuite import FlaskTestCase, emits_module_deprecation_warning
-from flask._compat import text_type
+
 from werkzeug.exceptions import BadRequest, NotFound
 from werkzeug.http import parse_date
 from werkzeug.routing import BuildError
+
+import flask
+from flask.testsuite import FlaskTestCase, emits_module_deprecation_warning
+from flask._compat import text_type
 
 
 class BasicFunctionalityTestCase(FlaskTestCase):
@@ -79,7 +81,7 @@ class BasicFunctionalityTestCase(FlaskTestCase):
         self.assert_equal(sorted(rv.allow), ['GET', 'HEAD', 'OPTIONS'])
         rv = c.head('/')
         self.assert_equal(rv.status_code, 200)
-        self.assert_false(rv.data) # head truncates
+        self.assert_false(rv.data)  # head truncates
         self.assert_equal(c.post('/more').data, b'POST')
         self.assert_equal(c.get('/more').data, b'GET')
         rv = c.delete('/more')
@@ -110,7 +112,7 @@ class BasicFunctionalityTestCase(FlaskTestCase):
         self.assert_equal(sorted(rv.allow), ['GET', 'HEAD', 'OPTIONS'])
         rv = c.head('/')
         self.assert_equal(rv.status_code, 200)
-        self.assert_false(rv.data) # head truncates
+        self.assert_false(rv.data)  # head truncates
         self.assert_equal(c.post('/more').data, b'POST')
         self.assert_equal(c.get('/more').data, b'GET')
         rv = c.delete('/more')

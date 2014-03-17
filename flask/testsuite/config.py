@@ -11,12 +11,14 @@
 
 import os
 import sys
-import flask
 import pkgutil
 import unittest
 from contextlib import contextmanager
+
+import flask
 from flask.testsuite import FlaskTestCase
 from flask._compat import PY2
+
 
 
 # config keys used for the ConfigTestCase

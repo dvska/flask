@@ -28,7 +28,7 @@ For example, to run a Flask application with 4 worker processes (``-w
 .. _greenlet: http://greenlet.readthedocs.org/en/latest/
 
 Tornado
---------
+-------
 
 `Tornado`_ is an open source version of the scalable, non-blocking web
 server and tools that power `FriendFeed`_.  Because it is non-blocking and
@@ -50,7 +50,7 @@ service with Flask is straightforward::
 .. _FriendFeed: http://friendfeed.com/
 
 Gevent
--------
+------
 
 `Gevent`_ is a coroutine-based Python networking library that uses
 `greenlet`_ to provide a high-level synchronous API on top of `libevent`_
@@ -153,3 +153,4 @@ use a fixer like this::
             return self.app(environ, start_response)
 
     app.wsgi_app = CustomProxyFix(app.wsgi_app)
+

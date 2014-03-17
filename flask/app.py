@@ -36,6 +36,7 @@ from .signals import request_started, request_finished, got_request_exception, \
      request_tearing_down, appcontext_tearing_down
 from ._compat import reraise, string_types, text_type, integer_types
 
+
 # a lock used for logger initialization
 _logger_lock = Lock()
 

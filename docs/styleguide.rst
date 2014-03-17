@@ -198,3 +198,4 @@ colon after the opening pound sign (``#``)::
         name = Column(String)
         #: the sha1 hash of the password + inline salt
         pw_hash = Column(String)
+

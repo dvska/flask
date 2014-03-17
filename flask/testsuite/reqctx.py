@@ -9,8 +9,10 @@
     :license: BSD, see LICENSE for more details.
 """
 
-import flask
 import unittest
+
+import flask
+
 try:
     from greenlet import greenlet
 except ImportError:

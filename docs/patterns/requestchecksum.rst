@@ -53,3 +53,4 @@ Example usage::
         # At this point the hash is fully constructed.
         checksum = hash.hexdigest()
         return 'Hash was: %s' % checksum
+

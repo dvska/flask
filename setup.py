@@ -69,7 +69,7 @@ class run_audit(Command):
         for dir in dirs:
             for root, _, files in os.walk(dir):
                 for file in files:
-                    if file != '__init__.py' and file.endswith('.py') :
+                    if file != '__init__.py' and file.endswith('.py'):
                         warns += flakes.checkPath(os.path.join(root, file))
         if warns > 0:
             print("Audit finished with total %d warnings." % warns)

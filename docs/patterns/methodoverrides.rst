@@ -41,3 +41,4 @@ To use this with Flask this is all that is necessary::
 
     app = Flask(__name__)
     app.wsgi_app = HTTPMethodOverrideMiddleware(app.wsgi_app)
+

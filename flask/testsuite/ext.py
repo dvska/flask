@@ -105,7 +105,6 @@ class ExtImportHookTestCase(FlaskTestCase):
     def test_flaskext_broken_package_no_module_caching(self):
         for x in range(2):
             with self.assert_raises(ImportError):
-                import flask.ext.broken
 
     def test_no_error_swallowing(self):
         try:

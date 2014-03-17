@@ -5,8 +5,9 @@
 
     Tests the Blueprint example app
 """
-import blueprintexample
 import unittest
+
+import blueprintexample
 
 
 class BlueprintExampleTestCase(unittest.TestCase):

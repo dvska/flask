@@ -14,12 +14,14 @@ from __future__ import print_function
 
 import os
 import sys
-import flask
 import warnings
 import unittest
 from functools import update_wrapper
 from contextlib import contextmanager
+
 from werkzeug.utils import import_string, find_modules
+
+import flask
 from flask._compat import reraise, StringIO
 
 

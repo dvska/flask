@@ -104,8 +104,8 @@ class View(object):
 
 class MethodViewType(type):
 
-    def __new__(cls, name, bases, d):
-        rv = type.__new__(cls, name, bases, d)
+    def __new__(mcs, name, bases, d):
+        rv = type.__new__(mcs, name, bases, d)
         if 'methods' not in d:
             methods = set(rv.methods or [])
             for key in d:

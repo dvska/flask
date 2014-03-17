@@ -9,9 +9,10 @@
     :license: BSD, see LICENSE for more details.
 """
 import os
-import minitwit
 import unittest
 import tempfile
+
+import minitwit
 
 
 class MiniTwitTestCase(unittest.TestCase):

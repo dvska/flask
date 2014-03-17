@@ -9,9 +9,10 @@
     :copyright: (c) 2014 by Armin Ronacher.
     :license: BSD, see LICENSE for more details.
 """
-import flask
 import unittest
 from logging import StreamHandler
+
+import flask
 from flask.testsuite import FlaskTestCase
 from flask._compat import StringIO
 

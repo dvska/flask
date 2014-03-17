@@ -9,6 +9,7 @@
     :license: BSD, see LICENSE for more details.
 """
 import posixpath
+
 from jinja2 import BaseLoader, Environment as BaseEnvironment, \
      TemplateNotFound
 

@@ -186,3 +186,4 @@ falls back to another application if the creator function returns `None`::
             return create_app(user)
 
     application = PathDispatcher(default_app, make_app)
+

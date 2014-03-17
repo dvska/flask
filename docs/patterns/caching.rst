@@ -67,3 +67,4 @@ Here a full example how this looks like normally::
             rv = calculate_value()
             cache.set('my-item', rv, timeout=5 * 60)
         return rv
+

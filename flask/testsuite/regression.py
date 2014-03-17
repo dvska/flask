@@ -12,10 +12,12 @@
 import os
 import gc
 import sys
-import flask
 import threading
 import unittest
+
 from werkzeug.exceptions import NotFound
+
+import flask
 from flask.testsuite import FlaskTestCase
 
 

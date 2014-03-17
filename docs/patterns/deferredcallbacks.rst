@@ -71,3 +71,4 @@ current language of the user in a cookie in the before-request function::
             def remember_language(response):
                 response.set_cookie('user_lang', language)
         g.language = language
+

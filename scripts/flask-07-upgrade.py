@@ -101,8 +101,8 @@ def fix_url_for(contents, module_declarations=None):
         make_line_annotations()
         for idx, (line_end, line) in enumerate(annotated_lines):
             if line_end > call_start:
-                for _, line in reversed(annotated_lines[:idx]):
-                    match = _mod_route_re.search(line)
+                for _, lline in reversed(annotated_lines[:idx]):
+                    match = _mod_route_re.search(lline)
                     if match is not None:
                         shortname = match.group(1)
                         return mapping.get(shortname)

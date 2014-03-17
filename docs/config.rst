@@ -439,3 +439,4 @@ Example usage for both::
     # or via open_instance_resource:
     with app.open_instance_resource('application.cfg') as f:
         config = f.read()
+

@@ -9,8 +9,9 @@
     :license: BSD, see LICENSE for more details.
 """
 
-import flask
 import unittest
+
+import flask
 from flask.testsuite import FlaskTestCase
 from flask._compat import text_type
 
