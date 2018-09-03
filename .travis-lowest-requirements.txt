@@ -3,4 +3,4 @@ Jinja2==2.10
 itsdangerous==0.21
 
 # extra dependencies
-blinker==1.0
+blinker==1.4
